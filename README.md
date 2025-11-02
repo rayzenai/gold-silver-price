@@ -19,6 +19,12 @@ You can install the package via Composer:
 composer require rayzenai/gold-silver-price
 ```
 
+Publish the migration file (optional):
+
+```bash
+php artisan vendor:publish --tag="gold-silver-price-migrations"
+```
+
 Run the migrations:
 
 ```bash

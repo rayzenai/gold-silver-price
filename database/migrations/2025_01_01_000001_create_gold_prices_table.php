@@ -13,15 +13,17 @@ return new class extends Migration
     {
         $tableName = config('gold-silver-price.table_name', 'gold_prices');
 
-        Schema::create($tableName, function (Blueprint $table) {
-            $table->id();
-            $table->date('date')->unique();
-            $table->integer('gold_per_tola')->comment('Gold price per tola in Rs.');
-            $table->integer('gold_per_10g')->comment('Gold price per 10 grams in Rs.');
-            $table->integer('silver_per_tola')->comment('Silver price per tola in Rs.');
-            $table->integer('silver_per_10g')->comment('Silver price per 10 grams in Rs.');
-            $table->timestamps();
-        });
+        if (! Schema::hasTable($tableName)) {
+            Schema::create($tableName, function (Blueprint $table) {
+                $table->id();
+                $table->date('date')->unique();
+                $table->integer('gold_per_tola')->comment('Gold price per tola in Rs.');
+                $table->integer('gold_per_10g')->comment('Gold price per 10 grams in Rs.');
+                $table->integer('silver_per_tola')->comment('Silver price per tola in Rs.');
+                $table->integer('silver_per_10g')->comment('Silver price per 10 grams in Rs.');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
