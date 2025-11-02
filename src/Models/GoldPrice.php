@@ -2,9 +2,9 @@
 
 namespace RayzenAI\GoldSilverPrice\Models;
 
-use Database\Factories\GoldPriceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use RayzenAI\GoldSilverPrice\Database\Factories\GoldPriceFactory;
 
 class GoldPrice extends Model
 {

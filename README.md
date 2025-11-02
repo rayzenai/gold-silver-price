@@ -10,6 +10,7 @@ A Laravel package for fetching and managing gold and silver prices from fenegosi
 - Queue support for background fetching
 - Artisan command for manual fetching
 - Configurable source URL and settings
+- Full test coverage with Pest PHP
 
 ## Installation
 
@@ -90,6 +91,15 @@ public function panel(Panel $panel): Panel
             GoldSilverPricePlugin::make(),
         ]);
 }
+```
+
+## Testing
+
+The package includes comprehensive tests using Pest PHP. Run tests with:
+
+```bash
+cd /path/to/gold-silver-price
+./vendor/bin/pest
 ```
 
 ## License
