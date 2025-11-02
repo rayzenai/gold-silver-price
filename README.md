@@ -65,6 +65,25 @@ use RayzenAI\GoldSilverPrice\Jobs\FetchGoldPriceJob;
 FetchGoldPriceJob::dispatch();
 ```
 
+### Scheduling Automatic Fetching
+
+To automatically fetch prices every five minutes between 10:00 and 13:00, add the following to your `routes/console.php` file:
+
+```php
+use Illuminate\Support\Facades\Schedule;
+use RayzenAI\GoldSilverPrice\Jobs\FetchGoldPriceJob;
+
+Schedule::job(FetchGoldPriceJob::class)
+    ->everyFiveMinutes()
+    ->between('10:00', '13:00');
+```
+
+Make sure your Laravel scheduler is running via cron:
+
+```bash
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
 ### Using the Service
 
 ```php
