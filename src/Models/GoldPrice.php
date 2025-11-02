@@ -2,12 +2,21 @@
 
 namespace RayzenAI\GoldSilverPrice\Models;
 
+use Database\Factories\GoldPriceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class GoldPrice extends Model
 {
     use HasFactory;
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): GoldPriceFactory
+    {
+        return GoldPriceFactory::new();
+    }
 
     protected $fillable = [
         'date',
